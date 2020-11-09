@@ -1,0 +1,12 @@
+name: azure
+on: 
+  watch:
+    types: started
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+     - uses: actions/checkout@v2
+ 
+     - name: vm
+       uses: 2moe/debug@master

@@ -21,10 +21,10 @@ if [ -x "$(command -v apt-get)" ]; then
     sudo apt-get install -y tmate openssh-client 
 fi
 #################
-if [ -s ${HOME}/.debug.test ]];then
+#if [ -e ${HOME}/.debug.test ]];then
   chmod 600 ${HOME}/.debug.test
   touch /tmp/keepalive
-fi
+#fi
 
 # Generate ssh key if needed
 [ -e ~/.ssh/id_ed25519 ] || ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -q -N ""

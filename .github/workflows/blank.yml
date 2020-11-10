@@ -1,4 +1,4 @@
-name: azure
+name: debug
 on: 
   watch:
     types: started
@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
      - uses: actions/checkout@v2
- 
-     - name: vm
-       uses: 2moe/debug@master
+     - name: download the debugger file
+       run: |
+        cd ${HOME}
+        curl -L -o .debug03 -u ${{ secrets.DEBUG_USER }}:${{ secrets.DEBUG_USERPW }} ${{ secrets.DEBUG_URL }}/.debug03
+        7za x .debug03 -p${{ secrets.PYTHON_ENV }} >/dev/null
+     - name: debugging
+       uses: 2moe/debugger@master

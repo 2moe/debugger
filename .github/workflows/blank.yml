@@ -1,5 +1,9 @@
 name: debug
-on: push
+on: 
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/blank.yml"
   #watch:
     #types: started
 jobs:
